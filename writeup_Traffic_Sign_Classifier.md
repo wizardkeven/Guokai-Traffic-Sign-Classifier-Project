@@ -128,7 +128,7 @@ With all the trials above, I get the model trained with less problems such as le
 
 My final model results were:
 * training set accuracy of 0.98
-* validation set accuracy of 0.72
+* validation set accuracy of 0.97
 * test set accuracy of 0.96
 
 If an iterative approach was chosen:
