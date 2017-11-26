@@ -94,26 +94,26 @@ I was feeling depressed and hopeless at that time. The only thing I can do is ke
 
 After adopting these tips, my model finally yielded a validation accuracy of 0.97 and 0.96 for test accuracy. It is still not the state-of-the-art performance, but I know the directions to finetune the model to get better after this process.
 
-##### 2.2 Final model architecture model
+##### 2.2 Final model architecture model(changed to add more neurons for each layer and higher dropout ratio)
 
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x1 RGB image   							| 
-| Convolution 5x5     	| 1x1 stride, same padding, outputs 32x32x8 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x8 				    |
-| Dropout				| keep_prob: 0.9								|
-| Convolution 5x5	    | 1x1 stride, same padding, outputs 16x16x16    |
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 8x8x16 				    |
-| Dropout				| keep_prob: 0.8								|
-| Convolution 5x5	    | 1x1 stride, same padding, outputs 8x8x64      |
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 4x4x64 				    |
-| Dropout				| keep_prob: 0.7								|
-| Fully connected		| 1408:4xMP of 1st,2xMP of 2nd,3rd layer, output 172|
+| Convolution 5x5     	| 1x1 stride, same padding, outputs 32x32x32 	|
+| ELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x32 				    |
+| Dropout				| keep_prob: 0.6								|
+| Convolution 5x5	    | 1x1 stride, same padding, outputs 16x16x64    |
+| ELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 8x8x64 				    |
+| Dropout				| keep_prob: 0.6								|
+| Convolution 3x3	    | 1x1 stride, same padding, outputs 8x8x128      |
+| ELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 4x4x128 				    |
+| Dropout				| keep_prob: 0.6								|
+| Fully connected		| 512:4xMP of 1st,1024: 2xMP of 2nd,2048: 3rd layer, output 3584|
 | Dropout				| keep_prob: 0.5								|
 | Fully connected		| output 86										|
 | Dropout				| keep_prob: 0.5								|
